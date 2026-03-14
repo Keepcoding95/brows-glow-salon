@@ -1,0 +1,54 @@
+<?php
+
+namespace App\Http\Controllers\Api;
+
+use App\Http\Controllers\Controller;
+use App\Models\Service;
+use Illuminate\Http\Request;
+
+class ServiceController extends Controller
+{
+    public function index()
+    {
+        return Service::all();
+    }
+
+    public function store(Request $request)
+    {
+        $validated = $request->validate([
+            'name' => 'required|string',
+            'price' => 'required|integer',
+            'description' => 'nullable|string',
+        ]);
+
+        $service = Service::create($validated);
+        return response()->json($service, 201);
+    }
+
+    public function show($id)
+    {
+        return Service::findOrFail($id);
+    }
+
+    public function update(Request $request, $id)
+    {
+        $service = Service::findOrFail($id);
+
+        $validated = $request->validate([
+            'name' => 'string',
+            'price' => 'integer',
+            'description' => 'nullable|string',
+        ]);
+
+        $service->update($validated);
+        return response()->json($service);
+    }
+
+    public function destroy($id)
+    {
+        $service = Service::findOrFail($id);
+        $service->delete();
+
+        return response()->json(null, 204);
+    }
+}
