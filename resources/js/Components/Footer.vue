@@ -4,7 +4,7 @@
     <div class="border-b border-gray-200 px-6 py-8">
       <div class="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 sm:flex-row">
         <p class="text-sm text-gray-500">
-          Urmărește-ne pentru inspirație și rezultate noi.
+          {{ $t('footer.follow') }}
         </p>
         <div class="flex items-center gap-4">
           <a
@@ -31,31 +31,31 @@
         <!-- Brand -->
         <div class="space-y-4">
           <h6 class="text-lg font-semibold text-gray-900">
-            Brows&Grow by R
+            {{ $t('footer.brand') }}
           </h6>
           <p class="max-w-md text-base text-gray-500">
-            Studio specializat în stilizarea și îngrijirea sprâncenelor, cu accent pe naturalețe, echilibru și detalii fine
+            {{ $t('footer.description') }}
           </p>
         </div>
 
         <!-- Navigation -->
         <div class="space-y-3">
           <h6 class="text-xs font-semibold uppercase tracking-wide text-gray-900">
-            Navigație
+            {{ $t('footer.navigation') }}
           </h6>
           <ul class="space-y-2">
-            <li><a href="#home" class="hover:text-gray-900 transition">Home</a></li>
-            <li><a href="#packages" class="hover:text-gray-900 transition">Pachete</a></li>
-            <li><a href="#gallery" class="hover:text-gray-900 transition">Galerie</a></li>
-            <li><a href="#services" class="hover:text-gray-900 transition">Servicii</a></li>
-            <li><a href="#contact" class="hover:text-gray-900 transition">Contact</a></li>
+            <li><a href="#home" class="hover:text-gray-900 transition">{{ $t('nav.home') }}</a></li>
+            <li><a href="#packages" class="hover:text-gray-900 transition">{{ $t('nav.packages') }}</a></li>
+            <li><a href="#gallery" class="hover:text-gray-900 transition">{{ $t('nav.gallery') }}</a></li>
+            <li><a href="#services" class="hover:text-gray-900 transition">{{ $t('nav.services') }}</a></li>
+            <li><a href="#contact" class="hover:text-gray-900 transition">{{ $t('nav.contact') }}</a></li>
           </ul>
         </div>
 
         <!-- Contact -->
         <div class="space-y-3">
           <h6 class="text-xs font-semibold uppercase tracking-wide text-gray-900">
-            Contact
+            {{ $t('footer.contact') }}
           </h6>
           <ul class="space-y-1 text-gray-500">
             <li>Strada Exemplu, nr. 1</li>
@@ -73,8 +73,8 @@
     <!-- Copyright -->
     <div class="border-t border-gray-200 bg-gray-50/95">
       <div class="mx-auto flex max-w-6xl items-center justify-between px-6 py-4 text-xs text-gray-500">
-        <span>© 2025 Brows&Grow by R. Toate drepturile rezervate.</span>
-        <span class="hidden sm:inline">Creat cu grijă pentru detalii.</span>
+        <span>{{ $t('footer.copyright') }}</span>
+        <span class="hidden sm:inline">{{ $t('footer.tagline') }}</span>
       </div>
     </div>
   </footer>

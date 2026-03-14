@@ -9,7 +9,7 @@
             class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-white/75"
             @click="mobileMenuOpen = true"
           >
-            <span class="sr-only">Deschide meniul</span>
+            <span class="sr-only">{{ $t('nav.openMenu') }}</span>
             <Bars3Icon class="size-6" aria-hidden="true" />
           </button>
         </div>
@@ -23,9 +23,25 @@
             {{ item.name }}
           </a>
         </div>
-        <div class="hidden lg:flex lg:flex-1 lg:justify-end">
+        <div class="hidden lg:flex lg:flex-1 lg:items-center lg:justify-end lg:gap-4">
+          <div class="flex items-center gap-1 rounded-lg bg-white/10 px-2 py-1">
+            <button
+              type="button"
+              :class="[locale === 'ro' ? 'bg-white/30 text-white font-semibold' : 'text-white/70 hover:text-white', 'rounded px-2 py-1 text-sm transition']"
+              @click="setLocale('ro')"
+            >
+              RO
+            </button>
+            <button
+              type="button"
+              :class="[locale === 'en' ? 'bg-white/30 text-white font-semibold' : 'text-white/70 hover:text-white', 'rounded px-2 py-1 text-sm transition']"
+              @click="setLocale('en')"
+            >
+              EN
+            </button>
+          </div>
           <a href="#" class="text-sm font-semibold leading-6 text-white/75 drop-shadow-md">
-            Autentificare <span aria-hidden="true">&rarr;</span>
+            {{ $t('nav.auth') }} <span aria-hidden="true">&rarr;</span>
           </a>
         </div>
       </nav>
@@ -40,13 +56,32 @@
               class="-m-2.5 rounded-md p-2.5 text-gray-700"
               @click="mobileMenuOpen = false"
             >
-              <span class="sr-only">Închide meniul</span>
+              <span class="sr-only">{{ $t('nav.closeMenu') }}</span>
               <XMarkIcon class="size-6" aria-hidden="true" />
             </button>
           </div>
           <div class="mt-6 flow-root">
             <div class="-my-6 divide-y divide-gray-500/10">
-              <div class="space-y-2 py-6">
+              <div class="space-y-2 py-4">
+                <div class="flex items-center gap-2 px-3 py-2">
+                  <span class="text-sm text-gray-500">{{ $t('nav.language') }}:</span>
+                  <button
+                    type="button"
+                    :class="[locale === 'ro' ? 'bg-indigo-100 text-indigo-700 font-semibold' : 'text-gray-600 hover:bg-gray-100', 'rounded px-2 py-1 text-sm']"
+                    @click="setLocale('ro')"
+                  >
+                    RO
+                  </button>
+                  <button
+                    type="button"
+                    :class="[locale === 'en' ? 'bg-indigo-100 text-indigo-700 font-semibold' : 'text-gray-600 hover:bg-gray-100', 'rounded px-2 py-1 text-sm']"
+                    @click="setLocale('en')"
+                  >
+                    EN
+                  </button>
+                </div>
+              </div>
+              <div class="space-y-2 py-4">
                 <a
                   v-for="item in navigation"
                   :key="item.name"
@@ -62,7 +97,7 @@
                   href="#"
                   class="-mx-3 block rounded-lg px-3 py-2.5 text-base/7 font-semibold text-gray-900 hover:bg-gray-50"
                 >
-                  Log In
+                  {{ $t('nav.login') }}
                 </a>
               </div>
             </div>
@@ -90,7 +125,7 @@
         v-if="!videoPlaying && !videoError"
         type="button"
         class="absolute inset-0 z-[5] flex items-center justify-center bg-black/30 transition hover:bg-black/40"
-        aria-label="Pornește video"
+        :aria-label="$t('hero.playVideo')"
         @click="playVideo"
       >
         <span class="rounded-full bg-white/90 p-4 text-gray-900 shadow-lg transition hover:bg-white">
@@ -107,15 +142,14 @@
             data-aos="fade-up"
             data-aos-delay="100"
           >
-            Arta pensatului perfect
+            {{ $t('hero.title') }}
           </h1>
           <p
             class="mt-8 text-lg font-medium text-pretty text-white/75 drop-shadow sm:text-xl/8"
             data-aos="fade-up"
             data-aos-delay="200"
           >
-            Descoperă frumusețea naturală a sprâncenelor tale printr-un pensat precis, profesional și personalizat.
-            Armonie, expresivitate și eleganță – toate în mâinile potrivite.
+            {{ $t('hero.subtitle') }}
           </p>
           <div
             class="mt-10 flex items-center justify-center"
@@ -126,7 +160,7 @@
               href="#packages"
               class="rounded-lg border border-white/60 bg-white/30 px-5 py-2.5 text-sm font-semibold text-white/90 shadow-md transition hover:bg-white/50 focus:outline-none focus:ring-2 focus:ring-white/50 focus:ring-offset-2 focus:ring-offset-gray-900"
             >
-              Află mai mult <span aria-hidden="true">↓</span>
+              {{ $t('hero.cta') }} <span aria-hidden="true">↓</span>
             </a>
           </div>
         </div>
@@ -135,10 +169,9 @@
 
     <section id="about" class="bg-white py-24 px-6 sm:px-12" data-aos="fade-up">
       <div class="max-w-3xl mx-auto text-center">
-        <h2 class="text-3xl font-bold text-gray-900 mb-4">Despre serviciile noastre</h2>
+        <h2 class="text-3xl font-bold text-gray-900 mb-4">{{ $t('about.title') }}</h2>
         <p class="text-lg text-gray-600">
-          Folosim tehnici moderne și produse de calitate superioară pentru a evidenția forma naturală a sprâncenelor tale.
-          Fiecare sesiune este personalizată în funcție de trăsăturile și preferințele tale.
+          {{ $t('about.text') }}
         </p>
       </div>
     </section>
@@ -146,12 +179,15 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue'
+import { ref, computed, onMounted } from 'vue'
+import { useI18n } from 'vue-i18n'
+import { setLocale } from '@/i18n'
 import { Dialog, DialogPanel } from '@headlessui/vue'
 import { Bars3Icon, XMarkIcon } from '@heroicons/vue/24/outline'
 import AOS from 'aos'
 import 'aos/dist/aos.css'
 
+const { t, locale } = useI18n()
 const mobileMenuOpen = ref(false)
 const heroVideo = ref(null)
 const videoPlaying = ref(false)
@@ -161,13 +197,13 @@ const videoSrc = typeof window !== 'undefined'
   ? `${window.location.origin}/videos/clip1.mp4`
   : '/videos/clip1.mp4'
 
-const navigation = [
-  { name: 'Home', href: '#home' },
-  { name: 'Packages', href: '#packages' },
-  { name: 'Gallery', href: '#gallery' },
-  { name: 'Services', href: '#services' },
-  { name: 'Contact', href: '#contact' },
-]
+const navigation = computed(() => [
+  { name: t('nav.home'), href: '#home' },
+  { name: t('nav.packages'), href: '#packages' },
+  { name: t('nav.gallery'), href: '#gallery' },
+  { name: t('nav.services'), href: '#services' },
+  { name: t('nav.contact'), href: '#contact' },
+])
 
 function tryPlayVideo() {
   if (!heroVideo.value) return

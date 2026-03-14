@@ -1,0 +1,88 @@
+{
+  "nav": {
+    "home": "Home",
+    "packages": "Pachete",
+    "gallery": "Galerie",
+    "services": "Servicii",
+    "contact": "Contact",
+    "auth": "Autentificare",
+    "login": "Log In",
+    "openMenu": "Deschide meniul",
+    "closeMenu": "Închide meniul",
+    "language": "Limbă"
+  },
+  "hero": {
+    "title": "Arta pensatului perfect",
+    "subtitle": "Descoperă frumusețea naturală a sprâncenelor tale printr-un pensat precis, profesional și personalizat. Armonie, expresivitate și eleganță – toate în mâinile potrivite.",
+    "cta": "Află mai mult",
+    "playVideo": "Pornește video"
+  },
+  "about": {
+    "title": "Despre serviciile noastre",
+    "text": "Folosim tehnici moderne și produse de calitate superioară pentru a evidenția forma naturală a sprâncenelor tale. Fiecare sesiune este personalizată în funcție de trăsăturile și preferințele tale."
+  },
+  "packages": {
+    "badge": "Packages",
+    "title": "Alege pachetul potrivit pentru tine",
+    "subtitle": "Toate pachetele includ servicii esențiale pentru o experiență completă",
+    "choose": "Alege pachetul (WhatsApp)"
+  },
+  "services": {
+    "badge": "Services",
+    "title": "Îngrijire profesională a sprâncenelor",
+    "subtitle": "Alege din serviciile noastre specializate pentru un look natural, curat și elegant. Fiecare serviciu este adaptat nevoilor tale.",
+    "book": "Vreau programare",
+    "imageAlt": "Captură serviciu",
+    "items": {
+      "stilizare_forma": {
+        "name": "Stilizare formă & cosmetizare",
+        "description": "Definire atentă a formei sprâncenelor, adaptată fizionomiei tale, împreună cu cosmetizare completă a zonei pentru un aspect curat și îngrijit."
+      },
+      "intretinere": {
+        "name": "Stilizare întreținere & cosmetizare",
+        "description": "Întreținerea formelor deja create, corectarea firelor crescute și cosmetizare delicată pentru a păstra rezultatul proaspăt, simetric și uniform."
+      },
+      "vopsire_gel": {
+        "name": "Stilizare & Vopsire gel",
+        "description": "Stilizare completă a sprâncenelor, urmată de vopsire cu gel/tint profesional, pentru intensificarea culorii și evidențierea liniei naturale a sprâncenelor."
+      },
+      "laminare_stilizare": {
+        "name": "Laminare & Botox",
+        "description": "Procedură completă de laminare, stilizare și tratament botox pentru fir, care disciplinează firele rebele și oferă volum natural, cu un efect de sprâncene „așezate” și bine definite."
+      },
+      "laminare_tonare": {
+        "name": "Laminare & Tonare & Botox",
+        "description": "Laminare pentru disciplinare, tonare pentru armonizarea culorii și tratament botox pentru hidratarea profundă a firului, într-un singur pachet complet de îngrijire."
+      }
+    }
+  },
+  "gallery": {
+    "badge": "Galerie",
+    "title": "Lucrările noastre",
+    "subtitle": "Descoperă rezultatele pe care le oferim în salon",
+    "imageAlt": "Imagine galerie",
+    "empty": "Adaugă poze în folderul {path} și actualizează lista din acest component."
+  },
+  "contact": {
+    "title": "Contact & Programări",
+    "subtitle": "Scrie-ne pentru programări sau întrebări și vezi mai jos locația salonului",
+    "address": "Adresă",
+    "email": "Email",
+    "phone": "Telefon",
+    "availability": "Disponibilă pentru programări în intervalul 09:00 – 18:00",
+    "whatsapp": "Scrie-ne pe WhatsApp",
+    "map": "Vezi locația pe hartă"
+  },
+  "footer": {
+    "follow": "Urmărește-ne pentru inspirație și rezultate noi.",
+    "brand": "Brows&Grow by R",
+    "description": "Studio specializat în stilizarea și îngrijirea sprâncenelor, cu accent pe naturalețe, echilibru și detalii fine",
+    "navigation": "Navigație",
+    "contact": "Contact",
+    "copyright": "© 2025 Brows&Grow by R. Toate drepturile rezervate.",
+    "tagline": "Creat cu grijă pentru detalii."
+  },
+  "common": {
+    "backToTop": "Înapoi sus"
+  }
+}

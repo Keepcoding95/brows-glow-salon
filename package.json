@@ -24,6 +24,7 @@
         "@headlessui/vue": "^1.7.23",
         "@heroicons/vue": "^2.2.0",
         "aos": "^2.3.4",
-        "leaflet": "^1.9.4"
+        "leaflet": "^1.9.4",
+        "vue-i18n": "^11.3.0"
     }
 }

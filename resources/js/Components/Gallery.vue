@@ -5,12 +5,12 @@
   >
     <div class="mx-auto max-w-7xl">
       <div class="mx-auto max-w-2xl text-center">
-        <h2 class="text-base font-semibold text-indigo-600">Galerie</h2>
+        <h2 class="text-base font-semibold text-indigo-600">{{ $t('gallery.badge') }}</h2>
         <p class="mt-2 text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
-          Lucrările noastre
+          {{ $t('gallery.title') }}
         </p>
         <p class="mt-4 text-lg text-gray-600">
-          Descoperă rezultatele pe care le oferim în salon.
+          {{ $t('gallery.subtitle') }}
         </p>
       </div>
 
@@ -30,7 +30,7 @@
         >
           <img
             :src="img.src"
-            :alt="img.alt || 'Imagine galerie'"
+            :alt="img.alt || $t('gallery.imageAlt')"
             class="h-full w-full object-cover transition duration-500 hover:scale-105"
             loading="lazy"
             @error="onImageError($event, index)"
@@ -39,7 +39,7 @@
       </div>
 
       <p v-if="images.length === 0" class="mt-8 text-center text-gray-500">
-        Adaugă poze în folderul <code class="rounded bg-gray-100 px-1 py-0.5 text-sm">public/images/gallery/</code> și actualizează lista din acest component.
+        {{ $t('gallery.empty', { path: 'public/images/gallery/' }) }}
       </p>
     </div>
   </div>

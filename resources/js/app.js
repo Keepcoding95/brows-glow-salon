@@ -5,6 +5,7 @@ import { createInertiaApp } from '@inertiajs/vue3'
 import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers'
 import { createApp, h } from 'vue'
 import { ZiggyVue } from '../../vendor/tightenco/ziggy'
+import { i18n } from './i18n'
 
 // Import AOS
 import AOS from 'aos'
@@ -22,6 +23,7 @@ createInertiaApp({
     setup({ el, App, props, plugin }) {
         const vueApp = createApp({ render: () => h(App, props) })
             .use(plugin)
+            .use(i18n)
             .use(ZiggyVue)
 
         // Initialize AOS after app mount

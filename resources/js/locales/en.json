@@ -1,0 +1,88 @@
+{
+  "nav": {
+    "home": "Home",
+    "packages": "Packages",
+    "gallery": "Gallery",
+    "services": "Services",
+    "contact": "Contact",
+    "auth": "Login",
+    "login": "Log In",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "language": "Language"
+  },
+  "hero": {
+    "title": "The art of perfect brows",
+    "subtitle": "Discover the natural beauty of your brows through precise, professional and personalized grooming. Harmony, expressiveness and elegance – all in the right hands.",
+    "cta": "Learn more",
+    "playVideo": "Play video"
+  },
+  "about": {
+    "title": "About our services",
+    "text": "We use modern techniques and high-quality products to enhance the natural shape of your brows. Each session is personalized according to your features and preferences."
+  },
+  "packages": {
+    "badge": "Packages",
+    "title": "Choose the right package for you",
+    "subtitle": "All packages include essential services for a complete experience",
+    "choose": "Choose package (WhatsApp)"
+  },
+  "services": {
+    "badge": "Services",
+    "title": "Professional brow care",
+    "subtitle": "Choose from our specialized services for a natural, clean and elegant look. Each service is tailored to your needs.",
+    "book": "Book appointment",
+    "imageAlt": "Service image",
+    "items": {
+      "stilizare_forma": {
+        "name": "Shaping & waxing",
+        "description": "Careful definition of brow shape, adapted to your features, with complete waxing of the area for a clean and polished look."
+      },
+      "intretinere": {
+        "name": "Maintenance & waxing",
+        "description": "Maintaining the created shape, correcting grown hairs and delicate waxing to keep the result fresh, symmetrical and even."
+      },
+      "vopsire_gel": {
+        "name": "Shaping & tint gel",
+        "description": "Complete brow shaping followed by professional gel/tint coloring for enhanced color and a defined natural brow line."
+      },
+      "laminare_stilizare": {
+        "name": "Lamination & Botox",
+        "description": "Complete lamination, shaping and botox treatment for the hair that tames unruly strands and adds natural volume, with a sleek, well-defined brow effect."
+      },
+      "laminare_tonare": {
+        "name": "Lamination & Toner & Botox",
+        "description": "Lamination for structure, toner for color harmony and botox for deep hair hydration, all in one complete care package."
+      }
+    }
+  },
+  "gallery": {
+    "badge": "Gallery",
+    "title": "Our work",
+    "subtitle": "Discover the results we offer in the salon",
+    "imageAlt": "Gallery image",
+    "empty": "Add images to the {path} folder and update the list in this component."
+  },
+  "contact": {
+    "title": "Contact & Bookings",
+    "subtitle": "Contact us for bookings or questions and see the salon location below",
+    "address": "Address",
+    "email": "Email",
+    "phone": "Phone",
+    "availability": "Available for bookings 09:00 – 18:00",
+    "whatsapp": "Contact us on WhatsApp",
+    "map": "See location on map"
+  },
+  "footer": {
+    "follow": "Follow us for inspiration and new results.",
+    "brand": "Brows&Grow by R",
+    "description": "Studio specialized in brow styling and care, with emphasis on natural look, balance and fine details",
+    "navigation": "Navigation",
+    "contact": "Contact",
+    "copyright": "© 2025 Brows&Grow by R. All rights reserved.",
+    "tagline": "Crafted with care for details."
+  },
+  "common": {
+    "backToTop": "Back to top"
+  }
+}

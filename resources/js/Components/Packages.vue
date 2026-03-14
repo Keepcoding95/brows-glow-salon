@@ -15,16 +15,16 @@
     </div>
 
     <div class="mx-auto max-w-4xl text-center">
-      <h2 class="text-base font-semibold text-indigo-600">Packages</h2>
+      <h2 class="text-base font-semibold text-indigo-600">{{ $t('packages.badge') }}</h2>
       <p class="mt-2 text-5xl font-semibold tracking-tight text-gray-900 sm:text-6xl">
-        Alege pachetul potrivit pentru tine
+        {{ $t('packages.title') }}
       </p>
     </div>
 
     <p
       class="mx-auto mt-6 max-w-2xl text-center text-lg font-medium text-gray-600 sm:text-xl"
     >
-      Toate pachetele includ servicii esențiale pentru o experiență completă
+      {{ $t('packages.subtitle') }}
     </p>
 
     <div
@@ -101,7 +101,7 @@
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="h-4 w-4" fill="currentColor">
             <path d="M12.04 2C6.58 2 2.21 6.37 2.21 11.83c0 2.08.61 3.99 1.77 5.68L2 22l4.64-1.9a10.08 10.08 0 0 0 5.4 1.58h.01c5.46 0 9.83-4.37 9.83-9.83C21.88 6.37 17.5 2 12.04 2Zm0 17.87h-.01a8.03 8.03 0 0 1-4.1-1.13l-.29-.17-2.75 1.13.59-2.9-.19-.3a7.4 7.4 0 0 1-1.15-3.99c0-4.09 3.33-7.42 7.42-7.42 1.98 0 3.84.77 5.24 2.17a7.35 7.35 0 0 1 2.18 5.25c0 4.09-3.33 7.41-7.43 7.41Zm4.07-5.57c-.22-.11-1.29-.64-1.49-.71-.2-.07-.35-.11-.5.11-.15.22-.57.71-.7.86-.13.15-.26.17-.48.06-.22-.11-.93-.34-1.76-1.09-.65-.58-1.09-1.3-1.22-1.52-.13-.22-.01-.33.1-.44.1-.1.22-.26.33-.39.11-.13.15-.22.22-.37.07-.15.04-.28-.02-.39-.06-.11-.5-1.2-.69-1.64-.18-.44-.37-.38-.5-.39h-.43c-.15 0-.39.06-.6.28-.2.22-.78.76-.78 1.86 0 1.1.8 2.17.9 2.32.11.15 1.57 2.4 3.8 3.36.53.23.94.37 1.26.48.53.17 1.01.15 1.39.09.42-.06 1.29-.53 1.47-1.04.18-.5.18-.93.13-1.02-.05-.09-.2-.15-.42-.26Z"/>
           </svg>
-          Alege pachetul (WhatsApp)
+          {{ $t('packages.choose') }}
         </a>
       </div>
     </div>
@@ -109,7 +109,8 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue'
+import { ref, onMounted, computed } from 'vue'
+import { useI18n } from 'vue-i18n'
 import axios from 'axios'
 import { CheckIcon } from '@heroicons/vue/20/solid'
 import AOS from 'aos'
@@ -117,6 +118,7 @@ import 'aos/dist/aos.css'
 import { trackWhatsAppClick } from '@/utils/analytics'
 import { WHATSAPP_NUMBER } from '@/config/contact'
 
+const { locale } = useI18n()
 const packages = ref([])
 
 function isGold(pkg) {
@@ -125,7 +127,9 @@ function isGold(pkg) {
 
 function whatsAppLink(pkg) {
   const servicesList = (pkg.services || []).map(s => `${s.name} (${s.price} RON)`).join(', ')
-  const text = `Bună! Aș dori să rezerv pachetul: ${pkg.name} - ${pkg.price} RON.${servicesList ? ` Servicii incluse: ${servicesList}` : ''}`
+  const intro = locale.value === 'ro' ? 'Bună! Aș dori să rezerv pachetul:' : 'Hi! I would like to book the package:'
+  const servicesLabel = locale.value === 'ro' ? ' Servicii incluse:' : ' Services included:'
+  const text = `${intro} ${pkg.name} - ${pkg.price} RON.${servicesList ? `${servicesLabel} ${servicesList}` : ''}`
   return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`
 }
 

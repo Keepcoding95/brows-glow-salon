@@ -13,7 +13,7 @@
         v-show="showBackToTop"
         type="button"
         class="fixed bottom-6 right-6 z-40 flex h-12 w-12 items-center justify-center rounded-full bg-white/90 text-gray-700 shadow-lg ring-1 ring-gray-900/5 transition hover:bg-white hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
-        aria-label="Înapoi sus"
+        :aria-label="$t('common.backToTop')"
         @click="scrollToTop"
       >
         <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -26,6 +26,9 @@
 
 <script setup>
 import { ref, onMounted, onBeforeUnmount } from 'vue'
+import { useI18n } from 'vue-i18n'
+
+useI18n()
 import axios from 'axios'
 import HeroWithNavbar from '@/Components/HeroWithNavbar.vue'
 import Packages from '@/Components/Packages.vue'

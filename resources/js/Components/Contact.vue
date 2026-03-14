@@ -12,10 +12,10 @@
 
     <div class="mx-auto max-w-7xl text-center mb-12">
       <h2 class="text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl">
-        Contact & Programări
+        {{ $t('contact.title') }}
       </h2>
       <p class="mt-2 text-lg text-gray-600 max-w-xl mx-auto">
-        Scrie-ne pentru programări sau întrebări și vezi mai jos locația salonului
+        {{ $t('contact.subtitle') }}
       </p>
     </div>
 
@@ -38,7 +38,7 @@
               </svg>
             </span>
             <div>
-              <p class="font-semibold text-gray-900">Adresă</p>
+              <p class="font-semibold text-gray-900">{{ $t('contact.address') }}</p>
               <p class="mt-1 text-gray-600">
                 Strada Exemplu, nr. 1<br />
                 București
@@ -57,7 +57,7 @@
               </svg>
             </span>
             <div>
-              <p class="font-semibold text-gray-900">Email</p>
+              <p class="font-semibold text-gray-900">{{ $t('contact.email') }}</p>
               <p class="mt-1 text-gray-600">
                 <a href="mailto:contact@company.com" class="text-indigo-600 underline">
                   contact@company.com
@@ -75,21 +75,21 @@
               </svg>
             </span>
             <div>
-              <p class="font-semibold text-gray-900">Telefon</p>
+              <p class="font-semibold text-gray-900">{{ $t('contact.phone') }}</p>
               <p class="mt-1 text-gray-600">
                 <a :href="`tel:+${WHATSAPP_NUMBER}`" class="hover:text-gray-900">
                   +40 741 33x xxx
                 </a>
               </p>
               <p class="mt-1 text-xs text-gray-500">
-                Disponibilă pentru programări în intervalul 09:00 – 18:00
+                {{ $t('contact.availability') }}
               </p>
             </div>
           </div>
 
           <div class="pt-3">
             <a
-              :href="`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent('Salut, as dori o programare pentru sprancene')}`"
+              :href="whatsAppContactLink"
               target="_blank"
               rel="noopener noreferrer"
               class="inline-flex items-center gap-2 rounded-full bg-emerald-500 px-5 py-2.5 text-sm font-semibold text-white shadow-md transition hover:bg-emerald-600 hover:shadow-lg"
@@ -106,14 +106,14 @@
                   d="M12.04 2C6.58 2 2.21 6.37 2.21 11.83c0 2.08.61 3.99 1.77 5.68L2 22l4.64-1.9a10.08 10.08 0 0 0 5.4 1.58h.01c5.46 0 9.83-4.37 9.83-9.83C21.88 6.37 17.5 2 12.04 2Zm0 17.87h-.01a8.03 8.03 0 0 1-4.1-1.13l-.29-.17-2.75 1.13.59-2.9-.19-.3a7.4 7.4 0 0 1-1.15-3.99c0-4.09 3.33-7.42 7.42-7.42 1.98 0 3.84.77 5.24 2.17a7.35 7.35 0 0 1 2.18 5.25c0 4.09-3.33 7.41-7.43 7.41Zm4.07-5.57c-.22-.11-1.29-.64-1.49-.71-.2-.07-.35-.11-.5.11-.15.22-.57.71-.7.86-.13.15-.26.17-.48.06-.22-.11-.93-.34-1.76-1.09-.65-.58-1.09-1.3-1.22-1.52-.13-.22-.01-.33.1-.44.1-.1.22-.26.33-.39.11-.13.15-.22.22-.37.07-.15.04-.28-.02-.39-.06-.11-.5-1.2-.69-1.64-.18-.44-.37-.38-.5-.39h-.43c-.15 0-.39.06-.6.28-.2.22-.78.76-.78 1.86 0 1.1.8 2.17.9 2.32.11.15 1.57 2.4 3.8 3.36.53.23.94.37 1.26.48.53.17 1.01.15 1.39.09.42-.06 1.29-.53 1.47-1.04.18-.5.18-.93.13-1.02-.05-.09-.2-.15-.42-.26Z"
                 />
               </svg>
-              Scrie-ne pe WhatsApp
+              {{ $t('contact.whatsapp') }}
             </a>
           </div>
         </div>
 
           <!-- Right column: map -->
           <div class="space-y-3">
-            <h4 class="text-sm font-semibold text-gray-900">Vezi locația pe hartă</h4>
+            <h4 class="text-sm font-semibold text-gray-900">{{ $t('contact.map') }}</h4>
             <div class="h-64 md:h-72">
               <GoogleMap :lat="44.4268" :lng="26.1025" :zoom="14" />
             </div>
@@ -126,8 +126,18 @@
 </template>
 
 <script setup>
+import { computed } from 'vue'
+import { useI18n } from 'vue-i18n'
 import GoogleMap from '@/Components/GoogleMap.vue'
 import { trackWhatsAppClick } from '@/utils/analytics'
 import { WHATSAPP_NUMBER } from '@/config/contact'
+
+const { locale } = useI18n()
+const whatsAppContactLink = computed(() => {
+  const text = locale.value === 'ro'
+    ? 'Salut, as dori o programare pentru sprancene'
+    : 'Hi, I would like to book an appointment for brows'
+  return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`
+})
 </script>
 
